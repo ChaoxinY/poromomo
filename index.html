@@ -11,7 +11,77 @@
 </head>
 
 <body>
+
+    <div id="grid-container">
+    <!-- header -->
+    <div id="header">
+        <ul> 
+            <li class="headerListItem">
+               <a>Poromomo</a>
+            </li>
+            <li class="headerListItem" >
+                <a id="displayTaskButton">Tasks</a>
+            </li>
+        </ul>
+
+    </div>
+
+    <!-- body divs -->
+    <div id="main">
+        <div  id="navigationDiv">
+
+            <div id="navigationHeaderDiv" >
+                <h1 id="taskTextHeader">Current tasks</h1>
+                <button id="addTaskButton"> + </button>
+                <hr>
+            </div>
+            
+            <!-- side text div -->
+            <div>
+                <!-- <h1 class="verticalText">ARCHIVED</h1> -->
+            </div>
+            <div class="overFlowDiv" id="taskListDisplayDiv">
+            </div>
     
+           
+        </div>
+        <div id="taskDiv">
+            <!-- Task header -->
+            <div id="taskHeader">
+                <h1 class="redBackGround whiteText leftMargin_20px" id="taskName"></h1>
+            </div>
+            <!-- Task body -->
+            <div class="taskBodyDiv">
+                <!-- Left -->
+                <div id="taskBodyLeftDiv">
+                    <div id="taskDescriptionDiv">
+                        <h2 class="leftMargin_20px">Description</h2>
+                        <h3 class="leftMargin_20px" id="taskDescription"></h3>
+                    </div>
+                    <div class="overFlowDiv" id="taskPartsDiv">
+                    </div>
+                </div>
+                <!-- Right -->
+                <div id="dateDiv">
+    
+                </div>
+            </div>
+            <!-- Task footer -->
+            <div class="centerAlign" id="taskFooterDiv">
+                <h1>Done</h1>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- footer -->
+    <div id="footer">
+
+    </div>
+
+    </div>
+
+
 
     <script type="module" src="./js/main.js"></script>
 </body>

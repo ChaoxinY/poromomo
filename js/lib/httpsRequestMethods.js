@@ -17,7 +17,10 @@ function sentXMLRequest(methode, url, callbackFunction, callbackContext, dataToS
         }
 
         if (request.status == 200) {
-            callbackFunction(response, callbackContext);
+            if(callbackFunction !==null)
+            {
+                callbackFunction(response, callbackContext);
+            }         
         }
         else {
             console.error(request.status);
@@ -35,9 +38,4 @@ function sentXMLRequest(methode, url, callbackFunction, callbackContext, dataToS
     request.send();
 }
 
-function test()
-{
-    console.log("asd");
-}
-
-export {sentXMLRequest,test}
+export {sentXMLRequest}

@@ -44,14 +44,42 @@ function executeQuery($conn, $query, $dynamicParams = null)
  * @param [type] $stmt
  * @return void
  */
-function echoQueryResult($stmt)
+function returnQueryResult($stmt)
 {
     try {
         $stmt->setFetchMode(PDO::FETCH_ASSOC);
         $result = $stmt->fetchAll();
-        echo json_encode($result);
+        return $result;
     } catch (Exception $e) {
         $e->getMessage();
         logError(500, "Server error:" . $e);
     }
+}
+
+/**
+ * Returns a part of the uri string based on the index given.
+ * @param [type] $string
+ * @param [type] $valueIndex
+ * @return string
+ */
+function retrieveDynamicValueFromURIString($string, $valueIndex)
+{
+    $stringCollection = explode('/', $string);
+    return $stringCollection[$valueIndex];
+}
+
+
+/**
+ * Stores all post values from a request inside an array and return it.
+ * @param [type] $keys
+ * @return array
+ */
+function retrieveDynamicValuesFromInput($keys)
+{
+    $data = json_decode(file_get_contents('php://input'), true);
+    $stringCollection = [];
+    foreach ($keys as &$value) {
+        array_push($stringCollection, $data[$value]);
+    }
+    return $stringCollection;
 }
